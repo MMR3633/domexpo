@@ -130,8 +130,10 @@ h1,h2,h3,h4{font-family:var(--head);margin:0;letter-spacing:.01em}
 .hero h1 span{display:block}
 .hero h1 .l2{color:var(--gold-200);font-weight:700}
 .hero-lead{margin:clamp(20px,2.4vw,28px) 0 0;max-width:560px;color:rgba(255,255,255,.76)}
-.hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:26px 0 0;padding:18px 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);max-width:620px;font-size:14.5px;color:rgba(255,255,255,.72)}
+.hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:26px 0 0;padding:18px 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);max-width:620px;font-size:14.5px;color:rgba(255,255,255,.72)}
 .hero-meta b{font-family:var(--head);font-weight:700;font-size:16px;color:#fff;letter-spacing:.04em}
+/* адрес всегда со своей строки: иначе при переносе точка-разделитель повисает в конце строки */
+.hero-meta .hm-place{flex:1 1 100%;margin-top:2px}
 .dot{width:5px;height:5px;border-radius:50%;background:var(--gold-500);flex:0 0 auto}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 0}
 .ministry{display:flex;align-items:center;gap:14px;margin:30px 0 0;padding:14px 20px;max-width:560px;background:rgba(10,24,40,.55);border:1px solid rgba(232,210,138,.18);border-left:3px solid var(--gold-500);border-radius:10px;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.7)}
@@ -534,8 +536,8 @@ dialog.doc::backdrop{background:rgba(4,11,22,.78);backdrop-filter:blur(6px)}
         <p class="hero-lead lead">Все застройщики Дагестана в одном зале. Три дня, чтобы выбрать квартиру без сотни звонков и поездок по офисам продаж.</p>
         <div class="hero-meta">
           <b class="num">16, 17, 18 октября 2026</b><span class="dot"></span>
-          <span>Махачкала</span><span class="dot"></span>
-          <span>Исторический парк «Россия-моя история», пр. Имама Шамиля, 31г</span>
+          <span>Махачкала</span>
+          <span class="hm-place">Исторический парк «Россия-моя история», пр. Имама Шамиля, 31г</span>
         </div>
         <div class="hero-cta">
           <a href="#ticket" class="btn btn-gold">Получить билет бесплатно</a>
