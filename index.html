@@ -388,7 +388,10 @@ details p{margin:0;padding:0 clamp(20px,2.4vw,30px) 26px;color:var(--ink-3);font
   html{scroll-behavior:auto}
   *{animation:none!important;transition:none!important}
   .rv,.rv-stagger>*,.hero-anim>*,.tkt-anim{opacity:1;transform:none}
-  .marq-track{animation:none}
+  .split-w>i{transform:none!important}
+  /* фирменные элементы оставляем живыми даже при «уменьшить движение»:
+     бегущая строка едет медленнее, счётчики набираются быстрее */
+  .marq-track{animation:marq 64s linear infinite!important}
 }
 @media (max-width:640px){
   .btn{width:100%}
@@ -1191,8 +1194,8 @@ dialog.doc::backdrop{background:rgba(4,11,22,.78);backdrop-filter:blur(6px)}
   function countUp(root){
     root.querySelectorAll('[data-count]').forEach(function(el){
       var to = parseFloat(el.getAttribute('data-count')) || 0;
-      if (reduced) { el.textContent = fmt(to); return; }
-      var t0 = performance.now(), dur = 1600;
+      // при «уменьшить движение» счётчик всё равно набирается, просто быстрее
+      var t0 = performance.now(), dur = reduced ? 900 : 1600;
       requestAnimationFrame(function step(now){
         var p = Math.min(1, (now - t0) / dur);
         el.textContent = fmt(Math.round(to * (1 - Math.pow(1 - p, 3))));
